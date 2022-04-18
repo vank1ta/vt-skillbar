@@ -1,2 +1,4 @@
 # vank1ta-skillbar
-test
+
+#exports
+exports["vank1ta-skillbar"]:taskBar(2500,10)
