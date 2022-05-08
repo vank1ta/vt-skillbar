@@ -1,13 +1,13 @@
-# vank1ta-skillbar
+# vt-skillbar
 
 **exports**
 ```
-exports["vank1ta-skillbar"]:taskBar(time,10)
+exports["vt-skillbar"]:taskBar(time,10)
 ```
 
 **Example Usage**
 ```
-local finished = exports["vank1ta-skillbar"]:taskBar(2500,10)
+local finished = exports["vt-skillbar"]:taskBar(2500,10)
 if not finished then
     isActive = false
                 else
