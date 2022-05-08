@@ -2,7 +2,7 @@ fx_version 'cerulean'
 games      { 'gta5' }
 lua54 'yes'
 
-author 'Vank1ta Scripts'
+author 'FuryX#6060 and 𝘃𝗮𝗻𝗸𝟭𝘁𝗮#9391'
 description 'NoPixel 3.0 SkillBar'
 version '1.1.0'
 

@@ -1,4 +1,4 @@
--- Author - FuryX#6060
+-- Author - FuryX#6060 - A complete change - 𝘃𝗮𝗻𝗸𝟭𝘁𝗮#9391
 local chance = 0
 local skillGap = 20
 local factor = 1.0
@@ -8,7 +8,7 @@ local calm = true
 function openGui(sentLength,taskID,namesent,chancesent,skillGapSent)
     guiEnabled = true
     SetNuiFocus(guiEnabled,false)
-    print("taskbar started")
+    print("The taskbar starts please wait")
     SendNUIMessage({runProgress = true, Length = sentLength, Task = taskID, name = namesent, chance = chancesent, skillGap = skillGapSent})
 end
 function updateGui(sentLength,taskID,namesent,chancesent,skillGapSent)
@@ -52,13 +52,17 @@ function FactorFunction(pos)
         end
         if factor == 0.5 and calm then
             calm = false
-            TriggerEvent("notification","You are frustrated", 2)
+            --If you use the direct link for mythic_notify in your QBCore, you can also uncomment the esx version and it will work right for you.
+            --exports['mythic_notify']:DoHudText('error', 'You are frustrated') --For ESX - If you are using ESX, uncomment and comment below the QBCore line.
+            QBCore.Functions.Notify('You are frustrated', 'error') --For QBcore - I make this the default for QBCore because I use it.
         end
         TriggerEvent("factor:restore")        
     else
         if factor > 1.0 or factor == 0.9 then
             if not calm then
-                TriggerEvent("notification","You are calm again")
+                --If you use the direct link for mythic_notify in your QBCore, you can also uncomment the esx version and it will work right for you.
+                --exports['mythic_notify']:DoHudText('inform', '') --For ESX - If you are using ESX, uncomment and comment below the QBCore line.
+                QBCore.Functions.Notify('You are calm again', 'success') --For QBcore - I make this the default for QBCore because I use it.
                 calm = true
             end            
             factor = 1.0
@@ -112,5 +116,5 @@ function taskBar(difficulty,skillGapSent)
 end
 
 RegisterCommand("test", function()
-    exports["np-taskbarskill"]:taskBar(1200,7)
+    exports["vt-skillbar"]:taskBar(1200,7)
 end)
